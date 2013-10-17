@@ -7,7 +7,7 @@
 (require 'tomorrow-night-theme)
 
 (add-to-list 'default-frame-alist
-	     '(font . "Anonymous Pro-13"))
+	     '(font . "Ubuntu Mono-13"))
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
