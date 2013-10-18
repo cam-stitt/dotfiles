@@ -50,4 +50,6 @@
 
 (require 'setup-rainbow-mode)
 
+(require 'setup-go-mode)
+
 ;;; init.el ends here
