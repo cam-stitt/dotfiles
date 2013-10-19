@@ -50,6 +50,16 @@
 
 (require 'setup-rainbow-mode)
 
+;(require 'setup-company-mode)
+
 (require 'setup-go-mode)
+
+(require 'setup-sr-speedbar)
+
+(require 'setup-magit)
+
+(require 'setup-rinari)
+
+(require 'setup-rhtml-mode)
 
 ;;; init.el ends here

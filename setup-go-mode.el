@@ -2,4 +2,7 @@
 
 (require 'go-mode-load)
 
+(add-hook 'go-mode-hook (lambda ()
+                          (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+
 (provide 'setup-go-mode)
