@@ -62,4 +62,6 @@
 
 (require 'setup-rhtml-mode)
 
+(require 'setup-projectile)
+
 ;;; init.el ends here
