@@ -64,4 +64,8 @@
 
 (require 'setup-projectile)
 
+(require 'setup-unbound)
+
+(require 'setup-linum-mode)
+
 ;;; init.el ends here

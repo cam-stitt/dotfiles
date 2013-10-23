@@ -10,7 +10,8 @@
 (setq sr-speedbar-width-x 20)
 (setq sr-speedbar-max-width 20)
 
-(global-set-key (kbd "C-c C-t") 'sr-speedbar-toggle)
+(global-set-key (kbd "C-x C-y") 'sr-speedbar-toggle)
+(global-set-key (kbd "C-x C-j") 'sr-speedbar-refresh-toggle)
 
 (when window-system
   (sr-speedbar-open))
