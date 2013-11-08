@@ -6,5 +6,6 @@
 
 (add-hook 'less-css-mode-hook 'linum-mode)
 
+(add-hook 'web-mode-hook 'linum-mode)
 
 (provide 'setup-linum-mode)

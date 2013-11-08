@@ -68,4 +68,19 @@
 
 (require 'setup-linum-mode)
 
+(require 'setup-yasnippet)
+
+(require 'setup-handlebars)
+
+;(require 'setup-jinja-mode)
+
+(fset 'testify
+     (lambda (&optional arg) "Converts test words into actual test functions.
+  
+  Converts something like `has token is 200` into `def
+  test_has_token_is_200(self):\n\tpass` so I can easily type out my
+  python test methods."
+       (interactive "p") (kmacro-exec-ring-item (quote ([100 101 102 32 116 101 115 116 95 67108896 5 134217765 32 return 95 return 33 5 40 115 101 108 102 41 58 return 32 32 32 32 112 97 115 115 return 14 1] 0 "%d")) arg)))
+
+
 ;;; init.el ends here

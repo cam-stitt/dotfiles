@@ -11,6 +11,10 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.less\\'" . web-mode))
 
+(setq web-mode-engines-alist
+      '(("django"    . "\\.html\\'"))
+)
+
 
 (defun web-mode-hook ()
   "Hooks for Web mode."
