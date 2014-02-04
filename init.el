@@ -20,6 +20,10 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+(global-set-key (kbd "M-[") 'insert-pair)
+(global-set-key (kbd "M-{") 'insert-pair)
+(global-set-key (kbd "M-\"") 'insert-pair)
+
 (require 'setup-packages)
 
 (when (memq window-system '(mac ns))
@@ -72,7 +76,7 @@
 
 (require 'setup-handlebars)
 
-;(require 'setup-jinja-mode)
+(require 'setup-mustache)
 
 (fset 'testify
      (lambda (&optional arg) "Converts test words into actual test functions.

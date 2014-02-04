@@ -2,4 +2,6 @@
 
 (require 'less-css-mode)
 
+(setq css-indent-offset 2)
+
 (provide 'setup-less-css-mode)
