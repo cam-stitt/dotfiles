@@ -1,10 +1,12 @@
-(setq tomorrow-theme-directory (concat user-emacs-directory "Themes/GNU Emacs"))
+;(setq tomorrow-theme-directory (concat user-emacs-directory "Themes/GNU Emacs"))
+(setq base16-theme-directory (concat user-emacs-directory "Themes/GNU Emacs/base16-emacs"))
+
+(add-to-list 'load-path base16-theme-directory)
+
+;;(require 'tomorrow-night-theme)
+(require 'base16-default-theme)
 
 (setq-default indent-tabs-mode nil)
-
-(add-to-list 'load-path tomorrow-theme-directory)
-
-(require 'tomorrow-night-theme)
 
 (add-to-list 'default-frame-alist
 	     '(font . "Ubuntu Mono-14"))
