@@ -15,8 +15,8 @@
 (global-set-key (kbd "C-x C-y") 'sr-speedbar-toggle)
 (global-set-key (kbd "C-x C-j") 'speedbar-refresh)
 
-(when window-system
-  (sr-speedbar-open))
+;(when window-system
+;  (sr-speedbar-open))
 
 ;(with-current-buffer sr-speedbar-buffer-name
 ;  (setq window-size-fixed 'width))

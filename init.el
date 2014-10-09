@@ -26,6 +26,8 @@
 
 (require 'setup-packages)
 
+(require 'exec-path-from-shell)
+
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
@@ -35,6 +37,8 @@
 
 (require 'ido)
 (ido-mode t)
+
+(require 'setup-windmove)
 
 (require 'setup-web-mode)
 
