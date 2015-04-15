@@ -1,0 +1,4 @@
+ls
+echo $GLIDER
+echo $GLIDER_CHEF
+ls
