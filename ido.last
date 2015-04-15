@@ -1,0 +1,116 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/stittc/go/src/fpx/flow/" . "migrations/")
+ ("/Users/stittc/src/glider/glider-chef/cookbooks/glider/files/default/root/" . ".ssh/")
+ ("/Users/stittc/src/glider/glider-chef/cookbooks/glider/files/default/" . "root/")
+ ("/Users/stittc/src/glider/glider-chef/cookbooks/glider/files/" . "default/")
+ ("/Users/stittc/src/glider/glider-chef/cookbooks/glider/" . "files/")
+ ("/Users/stittc/src/glider/glider-chef/cookbooks/" . "glider/")
+ ("/Users/stittc/src/glider/glider-chef/" . "cookbooks/")
+ ("/Users/stittc/src/glider/" . "glider-chef/")
+ ("/Users/stittc/src/workflow2/" . "docker/")
+ ("/Users/stittc/src/" . "workflow2/")
+ ("/Users/stittc/go/src/fpx/" . "flow/")
+ ("/Users/stittc/go/" . "src/")
+ ("/Users/stittc/" . "go/")
+ ("/Users/stittc/go/src/golang-book/" . "chapter10/")
+ ("/Users/stittc/go/src/" . "fpx/")
+ ("/Users/stittc/.emacs.d/vendor/" . "go-mode/")
+ ("/Users/stittc/.emacs.d/" . "vendor/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/stittc/go/src/fpx/flow/"
+ "/Users/stittc/src/glider/glider-chef/"
+ "/Users/stittc/"
+ "/Users/stittc/src/workflow2/docker/"
+ "/Users/stittc/go/src/golang-book/chapter10/"
+ "/Users/stittc/go/src/golang-book/chapter8/"
+ "/Users/stittc/go/src/golang-book/chapter7/"
+ "/Users/stittc/go/src/golang-book/chapter6/"
+ "/Users/stittc/go/src/golang-book/chapter5/"
+ "/Users/stittc/go/src/golang-book/chapter4/"
+ "/Users/stittc/.emacs.d/"
+ "/Users/stittc/.emacs.d/vendor/go-mode/"
+ "/Users/stittc/.emacs.d/vendor/less-mode/"
+ "/Users/stittc/.emacs.d/vendor/less-css-mode/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "dbconfig.yml"
+ "docker-compose.yml"
+ "main.go"
+ "Dockerfile"
+ "Gemfile"
+ "models.go"
+ ".zshrc"
+ "sleep.go"
+ "goroutine.go"
+ "q5.go"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/stittc/.emacs.d/" (21797 41628 0 0) "vendor/" "Themes/" "snippets/" "setup-yasnippet.el" "setup-windmove.el" "setup-web-mode.el" "setup-unbound.el" "setup-sr-speedbar.el" "setup-rinari.el" "setup-rhtml-mode.el" "setup-rainbow-mode.el" "setup-python.el" "setup-projectile.el" "setup-packages.el" "setup-org.el" "setup-mustache.el" "setup-markdown.el" "setup-magit.el" "setup-linum-mode.el" "setup-less-css-mode.el" "setup-js-mode.el" "setup-handlebars.el" "setup-go-mode.el" "setup-flycheck.el" "setup-fci.el" "setup-company-mode.el" "projectile-bookmarks.eld" "init.el" "ido.last" "eshell/" "elpa/" "auto-save-list/" "appearance.el" ".DS_Store" "../" "./")
+
+ ("/Users/stittc/" (21804 62517 0 0) "VirtualBox VMs/" "src/" "Public/" "Pictures/" "Music/" "Movies/" "Library/" "go/" "envs/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "Applications/" ".zshrc~" ".zshrc.pre-oh-my-zsh" ".zshrc-e" ".zshrc" ".zsh_history" ".zsh-update" ".zcompdump-rmtstittc-5.0.5" ".Trash/" ".ssh/" ".rbenv/" ".pip/" ".pgpass" ".oh-my-zsh/" ".nvm/" ".npm/" ".node-gyp/" ".mysql_history" ".local/" ".ipython/" ".gitconfig" ".emacs.d/" ".DS_Store" ".dropbox/" ".cups/" ".config/" ".chef/" ".CFUserTextEncoding" ".cache/" ".boot2docker/" ".bash_history" ".atom/" ".anyconnect" "../" "./")
+
+ ("/Users/stittc/go/src/fpx/flow/" (21804 62401 0 0) "main.go" "Dockerfile" "docker-compose.yml" "dbconfig.yml" "../" "./")
+
+ ("/Users/stittc/go/" (21797 39877 0 0) "src/" "pkg/" "bin/" "../" "./")
+
+ ("/Users/stittc/src/glider/glider-chef/cookbooks/glider/files/default/root/.ssh/" (21280 2288 0 0) "known_hosts" "id_rsa.pub" "id_rsa" "for_github.pub" "for_github" "config" "../" "./")
+
+ ("/Users/stittc/src/glider/glider-chef/cookbooks/glider/files/default/root/" (21280 2288 0 0) ".ssh/" "../" "./")
+
+ ("/Users/stittc/src/glider/glider-chef/cookbooks/glider/files/default/" (21485 21533 0 0) "root/" "jenkins/" ".DS_Store" "../" "./")
+
+ ("/Users/stittc/src/glider/glider-chef/cookbooks/glider/files/" (21485 21529 0 0) "default/" ".DS_Store" "../" "./")
+
+ ("/Users/stittc/src/glider/glider-chef/cookbooks/glider/" (21686 64824 0 0) "Thorfile" "templates/" "recipes/" "README.md" "metadata.rb" "Gemfile.lock" "Gemfile" "files/" "chefignore" "Berksfile.lock" "Berksfile" "attributes/" ".DS_Store" "../" "./")
+
+ ("/Users/stittc/src/glider/glider-chef/cookbooks/" (21435 18025 0 0) "jenkins/" "glider/" ".DS_Store" "../" "./")
+
+ ("/Users/stittc/src/glider/glider-chef/" (21779 20221 0 0) "Vagrantfile" "route53_xref" "roles/" "requirements.txt" "README.mkd" "overrides.m4.example" "overrides.m4" "Makefile" "m4/" "Gemfile.lock" "Gemfile" "fabfile.pyc" "fabfile.py" "environments/" "doc/" "devops.pub" "devops" "data_bags/" "cookbooks/" "cloudwatch" "check_consistency" "aws/" ".gitignore" ".git/" ".DS_Store" ".chef/" "../" "./")
+
+ ("/Users/stittc/src/glider/" (21705 19273 0 0) "markdown_docs/" "glider-chef/" "glider/" "filepicker.css" ".vagrant/" ".DS_Store" "../" "./")
+
+ ("/Users/stittc/go/src/fpx/" (21796 28729 0 0) "flow/" "../" "./")
+
+ ("/Users/stittc/go/src/" (21796 58249 0 0) "gopkg.in/" "golang.org/" "golang-book/" "github.com/" "fpx/" "../" "./")
+
+ ("/Users/stittc/src/workflow2/docker/" (21797 8652 0 0) "Dockerfile" ".#Dockerfile" "../" "./")
+
+ ("/Users/stittc/src/workflow2/" (21796 55640 0 0) "docker/" "app/" ".noserc" ".gitignore" "../" "./")
+
+ ("/Users/stittc/src/" (21796 54843 0 0) "workflow2/" "viisisafe/" "validator/" "tomorrow-theme/" "toggler/" "reviewr/" "pyelasticsearch/" "modme/" "loyalty/" "hoyt/" "gliderv2-old/" "glider2/" "glider/" "gifted-old/" "gifted/" "frey/" "force.com/" "flight-rivets-observe/" "flask-skeleton/" "factory_boy-peewee/" "factory_boy/" "exitio-django-ajax/" "envtest/" "docker-python-deadsnakes/" "django-brake/" "django-ajax/" "cpq-python/" "cameronstitt.pem" "cameron-test.pem" "base16-iterm2/" "atom-syntax-settings/" "Aspose_Words_NET/" "arnold/" "abiword/" ".DS_Store" "../" "./")
+
+ ("/Users/stittc/go/src/golang-book/" (21793 9085 0 0) "chapter8/" "chapter7/" "chapter6/" "chapter5/" "chapter4/" "chapter10/" "../" "./")
+
+ ("/Users/stittc/go/src/golang-book/chapter10/" (21793 11260 0 0) "sleep.go" "goroutine.go" "../" "./")
+
+ ("/Users/stittc/go/src/golang-book/chapter8/" (21793 7886 0 0) "q5.go" "q4.go" "../" "./")
+
+ ("/Users/stittc/go/src/golang-book/chapter7/" (21793 7131 0 0) "sum.go" "oddGen.go" "largest.go" "half.go" "fib.go" "average.go" "../" "./")
+
+ ("/Users/stittc/go/src/golang-book/chapter6/" (21791 31877 0 0) "q4.go" "../" "./")
+
+ ("/Users/stittc/go/src/golang-book/chapter5/" (21791 31206 0 0) "q3.go" "q2.go" "../" "./")
+
+ ("/Users/stittc/go/src/golang-book/chapter4/" (21791 29993 0 0) "temperature.go" "length.go" "../" "./")
+
+ ("/Users/stittc/.emacs.d/vendor/go-mode/" (21789 64941 0 0) "go-mode.el" "go-mode-load.el" "../" "./")
+
+ ("/Users/stittc/.emacs.d/vendor/less-mode/" (21790 627 0 0) "less-css-mode.el" "../" "./")
+
+ ("/Users/stittc/.emacs.d/vendor/" (21790 596 0 0) "web-mode/" "unbound/" "sr-speedbar.el" "mustache-mode.el" "markdown-mode/" "less-mode/" "js2-mode/" "handlebars-mode.el" "go-mode/" ".DS_Store" "../" "./")
+
+ ("/Users/stittc/.emacs.d/vendor/less-css-mode/" (21790 115 0 0) "less-css-mode.el" ".gitignore" ".DS_Store" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

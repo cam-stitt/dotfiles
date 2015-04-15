@@ -11,10 +11,10 @@ tramp
 .org-id-locations
 *_archive
 
-elpa
-
 ac-comphist.dat
 
 projectile-bookmarks.eld
 
 url/
+
+elpa/
