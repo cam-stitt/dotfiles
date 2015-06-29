@@ -11,8 +11,17 @@
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
 
+(defun ad-advised-definition-p (definition)
+  "Return non-nil if DEFINITION was generated from advice information."
+  (if (or (ad-lambda-p definition)
+	  (macrop definition)
+	  (ad-compiled-p definition))
+      (let ((docstring (ad-docstring definition)))
+	(and (stringp docstring)
+	     (get-text-property 0 'dynamic-docstring-function docstring)))))
+
 ;; Set path to dependencies
-(add-to-list 'load-path user-emacs-directory)
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
 (setq backup-directory-alist
@@ -20,11 +29,24 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+(message "Deleting old backup files...")
+(let ((week (* 60 60 24 7))
+      (current (float-time (current-time))))
+  (dolist (file (directory-files temporary-file-directory t))
+    (when (and (backup-file-name-p file)
+               (> (- current (float-time (nth 5 (file-attributes file))))
+                  week))
+      (message "%s" file)
+      (delete-file file))))
+
 (global-set-key (kbd "M-[") 'insert-pair)
 (global-set-key (kbd "M-{") 'insert-pair)
 (global-set-key (kbd "M-\"") 'insert-pair)
 
 (require 'setup-packages)
+
+(unless (package-installed-p 'exec-path-from-shell)
+  (package-install 'exec-path-from-shell))
 
 (require 'exec-path-from-shell)
 
@@ -62,15 +84,6 @@
 
 (require 'setup-go-mode)
 
-(defun ad-advised-definition-p (definition)
-  "Return non-nil if DEFINITION was generated from advice information."
-  (if (or (ad-lambda-p definition)
-	  (macrop definition)
-	  (ad-compiled-p definition))
-      (let ((docstring (ad-docstring definition)))
-	(and (stringp docstring)
-	     (get-text-property 0 'dynamic-docstring-function docstring)))))
-
 (require 'setup-sr-speedbar)
 
 (require 'setup-magit)
@@ -91,6 +104,8 @@
 
 (require 'setup-mustache)
 
+(require 'setup-dockerfile)
+
 (fset 'testify
      (lambda (&optional arg) "Converts test words into actual test functions.
   
@@ -98,6 +113,5 @@
   test_has_token_is_200(self):\n\tpass` so I can easily type out my
   python test methods."
        (interactive "p") (kmacro-exec-ring-item (quote ([100 101 102 32 116 101 115 116 95 67108896 5 134217765 32 return 95 return 33 5 40 115 101 108 102 41 58 return 32 32 32 32 112 97 115 115 return 14 1] 0 "%d")) arg)))
-
 
 ;;; init.el ends here

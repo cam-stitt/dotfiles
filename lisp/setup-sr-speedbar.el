@@ -12,14 +12,16 @@
 
 (sr-speedbar-refresh-turn-off)
 
+(sr-speedbar-open)
+
 (global-set-key (kbd "C-x C-y") 'sr-speedbar-toggle)
 (global-set-key (kbd "C-x C-j") 'speedbar-refresh)
 
 ;(when window-system
 ;  (sr-speedbar-open))
 
-;(with-current-buffer sr-speedbar-buffer-name
-;  (setq window-size-fixed 'width))
+(with-current-buffer sr-speedbar-buffer-name
+  (setq window-size-fixed 'width))
 
 (provide 'setup-sr-speedbar)
 ;;; setup-sr-speedbar.el ends here
