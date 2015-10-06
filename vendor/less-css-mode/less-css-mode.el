@@ -1,6 +1,6 @@
 ;;; less-css-mode.el --- Major mode for editing LESS CSS files (lesscss.org)
 ;;
-;; Copyright 2011 Steve Purcell
+;; Copyright (C) 2011-2014 Steve Purcell
 ;;
 ;; Author: Steve Purcell <steve@sanityinc.com>
 ;; URL: https://github.com/purcell/less-css-mode
@@ -20,9 +20,9 @@
 ;;; Commentary:
 ;;
 ;; This mode provides syntax highlighting for LESS CSS files, plus
-;; optional support for `flymake-mode' and compilation of .less files
-;; to .css files at the time they are saved: use
-;; `less-css-compile-at-save' to enable the latter.
+;; optional support for compilation of .less files to .css files at
+;; the time they are saved: use `less-css-compile-at-save' to enable
+;; this.
 ;;
 ;; Command line utility "lessc" is required if setting
 ;; `less-css-compile-at-save' to t.  To install "lessc" using the
@@ -46,6 +46,14 @@
 ;;
 ;; // -*- less-css-compile-at-save: t; less-css-output-directory: "../css" -*-
 ;;
+;; Alternatively, you can use directory local variables to set the
+;; default value of `less-css-output-directory' for your project.
+;;
+;; In the case of files which are included in other .less files, you
+;; may want to trigger the compilation of a "master" .less file on
+;; save: you can accomplish this with `less-css-input-file-name',
+;; which is probably best set using directory local variables.
+;;
 ;; If you don't need CSS output but would like to be warned of any
 ;; syntax errors in your .less source, consider using `flymake-less':
 ;; https://github.com/purcell/flymake-less
@@ -66,8 +74,9 @@
 ;; Landström or Garshol
 
 (require 'css-mode)
-(unless (boundp 'css-navigation-syntax-table)
-  (error "Wrong css-mode.el: please use the version by Stefan Monnier, bundled with Emacs >= 23."))
+(unless (or (boundp 'css-navigation-syntax-table)
+            (functionp 'css-smie-rules))
+  (error "Wrong css-mode.el: please use the version by Stefan Monnier, bundled with Emacs >= 23"))
 
 (defgroup less-css nil
   "Less-css mode"
@@ -75,15 +84,18 @@
   :group 'css)
 
 (defcustom less-css-lessc-command "lessc"
-  "Command used to compile LESS files, should be lessc or the
-  complete path to your lessc executable, e.g.:
-  \"~/.gem/ruby/1.8/bin/lessc\""
+  "Command used to compile LESS files.
+Should be lessc or the complete path to your lessc executable,
+  e.g.: \"~/.gem/ruby/1.8/bin/lessc\""
+  :type 'file
   :group 'less-css)
+(put 'less-css-lessc-command 'safe-local-variable t)
 
 (defcustom less-css-compile-at-save nil
-  "If non-nil, the LESS buffers will be compiled to CSS after each save"
+  "If non-nil, the LESS buffers will be compiled to CSS after each save."
   :type 'boolean
   :group 'less-css)
+(put 'less-css-compile-at-save 'safe-local-variable t)
 
 (defcustom less-css-lessc-options '("--no-color")
   "Command line options for less executable.
@@ -91,6 +103,7 @@
 Use \"-x\" to minify output."
   :type '(repeat string)
   :group 'less-css)
+(put 'less-css-compile-at-save 'safe-local-variable t)
 
 (defvar less-css-output-directory nil
   "Directory in which to save CSS, or nil to use the LESS file's directory.
@@ -111,6 +124,23 @@ default.")
 
 (make-variable-buffer-local 'less-css-output-file-name)
 
+(defvar less-css-input-file-name nil
+  "File name which will be compiled to CSS.
+
+When the current buffer is saved `less-css-input-file-name' file
+will be compiled to css instead of the current file.
+
+Set this in order to trigger compilation of a \"master\" .less
+file which includes the current file.  The best way to set this
+variable in most cases is likely to be via directory local
+variables.
+
+This can be also be set to a full path, or a relative path. If
+the path is relative, it will be relative to the the current directory by
+default.")
+
+(make-variable-buffer-local 'less-css-input-file-name)
+
 (defconst less-css-default-error-regex
   "^\\(?:\e\\[31m\\)?\\([^\e\n]*\\|FileError:.*\n\\)\\(?:\e\\[39m\e\\[31m\\)? in \\(?:\e\\[39m\\)?\\([^ \r\n\t\e]+\\)\\(?:\e\\[90m\\)?\\(?::\\| on line \\)\\([0-9]+\\)\\(?::\\|, column \\)\\([0-9]+\\):?\\(?:\e\\[39m\\)?")
 
@@ -125,7 +155,7 @@ default.")
 
 
 (defun less-css-compile-maybe ()
-  "Runs `less-css-compile' if `less-css-compile-at-save' is t"
+  "Run `less-css-compile' if `less-css-compile-at-save' is non-nil."
   (if less-css-compile-at-save
       (less-css-compile)))
 
@@ -146,14 +176,24 @@ default.")
   "Compiles the current buffer to css using `less-css-lessc-command'."
   (interactive)
   (message "Compiling less to css")
-  (compile
-   (mapconcat 'identity
-              (append (list (less-css--maybe-shell-quote-command less-css-lessc-command))
-                      less-css-lessc-options
-                      (list (shell-quote-argument buffer-file-name)
-                            ">"
-                            (shell-quote-argument (less-css--output-path))))
-              " ")))
+  (let ((compilation-buffer-name-function (lambda (mode-name) "*less-css-compilation*")))
+    (save-window-excursion
+      (with-current-buffer
+          (compile
+           (mapconcat 'identity
+                      (append (list (less-css--maybe-shell-quote-command less-css-lessc-command))
+                              less-css-lessc-options
+                              (list (shell-quote-argument
+                                     (or less-css-input-file-name buffer-file-name))
+                                    ">"
+                                    (shell-quote-argument (less-css--output-path))))
+                      " "))
+        (add-hook 'compilation-finish-functions
+                  (lambda (buf msg)
+                    (unless (string-match-p "^finished" msg)
+                      (display-buffer buf)))
+                  nil
+                  t)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Minor mode
@@ -184,6 +224,10 @@ Special commands:
   (set (make-local-variable 'comment-start) "//")
   (set (make-local-variable 'comment-end) "")
   (set (make-local-variable 'indent-line-function) 'less-css-indent-line)
+  (when (functionp 'css-smie-rules)
+    (smie-setup css-smie-grammar #'css-smie-rules
+                :forward-token #'css-smie--forward-token
+                :backward-token #'css-smie--backward-token))
 
   (add-hook 'after-save-hook 'less-css-compile-maybe nil t))
 
@@ -192,10 +236,12 @@ Special commands:
 (defun less-css-indent-line ()
   "Indent current line according to LESS CSS indentation rules."
   (let ((css-navigation-syntax-table less-css-mode-syntax-table))
-    (css-indent-line)))
+    (if (fboundp 'css-indent-line)
+        (css-indent-line)
+      (smie-indent-line))))
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.less" . less-css-mode))
+(add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
 
 
 (provide 'less-css-mode)

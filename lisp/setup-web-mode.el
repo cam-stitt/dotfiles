@@ -29,7 +29,7 @@
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-disable-auto-pairing t)
-  (setq web-mode-disable-css-colorization f)
+  (setq web-mode-enable-css-colorization t)
 )
 
 (add-hook 'web-mode-hook 'my-web-mode-hook)
