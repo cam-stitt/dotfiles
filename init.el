@@ -106,6 +106,10 @@
 
 (require 'setup-dockerfile)
 
+(require 'setup-git-gutter-fringe)
+
+(require 'setup-smex)
+
 (fset 'testify
      (lambda (&optional arg) "Converts test words into actual test functions.
   
