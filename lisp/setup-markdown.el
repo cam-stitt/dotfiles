@@ -1,4 +1,8 @@
-(add-to-list 'load-path "~/.emacs.d/vendor/markdown-mode")
+(unless (package-installed-p 'markdown-mode+)
+  (package-install 'markdown-mode+))
+(package-initialize)
+
+(require 'markdown-mode+)
 
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
