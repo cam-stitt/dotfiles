@@ -1,4 +1,6 @@
-(add-to-list 'load-path "~/.emacs.d/vendor/dockerfile-mode/")
+(unless (package-installed-p 'dockerfile-mode)
+  (package-install 'dockerfile-mode))
+(package-initialize)
 
 (require 'dockerfile-mode)
 
