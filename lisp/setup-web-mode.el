@@ -1,4 +1,6 @@
-(add-to-list 'load-path "~/.emacs.d/vendor/web-mode")
+(unless (package-installed-p 'web-mode)
+  (package-install 'web-mode))
+(package-initialize)
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))

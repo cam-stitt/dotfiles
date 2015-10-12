@@ -1,5 +1,6 @@
-(add-to-list 'load-path "~/.emacs.d/vendor/less-css-mode")
-(load "~/.emacs.d/vendor/less-css-mode/less-css-mode")
+(unless (package-installed-p 'less-css-mode)
+  (package-install 'less-css-mode))
+(package-initialize)
 
 (require 'less-css-mode)
 

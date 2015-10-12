@@ -1,4 +1,7 @@
-(add-to-list 'load-path "~/.emacs.d/vendor/smex/")
+(unless (package-installed-p 'smex)
+  (package-install 'smex))
+(package-initialize)
+
 (require 'smex)
 
 (smex-initialize)

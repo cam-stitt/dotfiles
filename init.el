@@ -43,7 +43,14 @@
 (global-set-key (kbd "M-{") 'insert-pair)
 (global-set-key (kbd "M-\"") 'insert-pair)
 
-(require 'setup-packages)
+(require 'package) ;; You might already have this line
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
+
 
 (unless (package-installed-p 'exec-path-from-shell)
   (package-install 'exec-path-from-shell))
@@ -55,61 +62,6 @@
 
 (global-auto-revert-mode t)
 
-(require 'appearance)
-
-(require 'ido)
-(ido-mode t)
-
-(require 'setup-windmove)
-
-(require 'setup-web-mode)
-
-(require 'setup-js-mode)
-
-(require 'setup-less-css-mode)
-
-(require 'setup-flycheck)
-
-(require 'setup-fci)
-
-(require 'setup-python)
-
-(require 'setup-org)
-
-(require 'setup-markdown)
-
-(require 'setup-rainbow-mode)
-
-;(require 'setup-company-mode)
-
-(require 'setup-go-mode)
-
-(require 'setup-sr-speedbar)
-
-(require 'setup-magit)
-
-;(require 'setup-rinari)
-
-(require 'setup-rhtml-mode)
-
-(require 'setup-projectile)
-
-(require 'setup-unbound)
-
-(require 'setup-linum-mode)
-
-(require 'setup-yasnippet)
-
-(require 'setup-handlebars)
-
-(require 'setup-mustache)
-
-(require 'setup-dockerfile)
-
-(require 'setup-git-gutter-fringe)
-
-(require 'setup-smex)
-
 (fset 'testify
      (lambda (&optional arg) "Converts test words into actual test functions.
   
@@ -117,5 +69,60 @@
   test_has_token_is_200(self):\n\tpass` so I can easily type out my
   python test methods."
        (interactive "p") (kmacro-exec-ring-item (quote ([100 101 102 32 116 101 115 116 95 67108896 5 134217765 32 return 95 return 33 5 40 115 101 108 102 41 58 return 32 32 32 32 112 97 115 115 return 14 1] 0 "%d")) arg)))
+
+(require 'appearance)
+
+(require 'ido)
+(ido-mode t)
+
+;(require 'setup-company-mode)
+
+(require 'setup-dockerfile)
+
+(require 'setup-fci)
+
+(require 'setup-flycheck)
+
+(require 'setup-git-gutter-fringe)
+
+(require 'setup-go-mode)
+
+(require 'setup-handlebars)
+
+(require 'setup-js-mode)
+
+(require 'setup-less-css-mode)
+
+(require 'setup-linum-mode)
+
+(require 'setup-magit)
+
+(require 'setup-markdown)
+
+(require 'setup-mustache)
+
+(require 'setup-org)
+
+(require 'setup-projectile)
+
+(require 'setup-python)
+
+(require 'setup-rainbow-mode)
+
+(require 'setup-rhtml-mode)
+
+;;;(require 'setup-rinari)
+
+(require 'setup-smex)
+
+(require 'setup-sr-speedbar)
+
+(require 'setup-unbound)
+
+(require 'setup-web-mode)
+
+(require 'setup-windmove)
+
+(require 'setup-yasnippet)
 
 ;;; init.el ends here

@@ -1,6 +1,4 @@
-(unless (package-installed-p 'dockerfile-mode)  ;; Make sure the dockerfile-mode package is
-  (package-install 'dockerfile-mode))           ;; installed, install it if not
-(package-initialize)                ;; Initialize & Install Package
+(add-to-list 'load-path "~/.emacs.d/vendor/dockerfile-mode/")
 
 (require 'dockerfile-mode)
 

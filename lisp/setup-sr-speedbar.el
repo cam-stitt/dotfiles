@@ -2,6 +2,9 @@
 ;;; Commentary:
 
 ;;; Code:
+(unless (package-installed-p 'sr-speedbar)
+  (package-install 'sr-speedbar))
+(package-initialize)
 (require 'sr-speedbar)
 
 (setq speedbar-use-images nil)

@@ -1,4 +1,6 @@
-(add-to-list 'load-path "~/.emacs.d/vendor/unbound")
+(unless (package-installed-p 'unbound)
+  (package-install 'unbound))
+(package-initialize)
 
 (require 'unbound)
 

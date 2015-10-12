@@ -3,9 +3,12 @@
 ;; This adds a git gutter to emacs!
 
 ;;; Code:
-(add-to-list 'load-path "~/.emacs.d/vendor/fringe-helper/")
-(add-to-list 'load-path "~/.emacs.d/vendor/git-gutter/")
-(add-to-list 'load-path "~/.emacs.d/vendor/git-gutter-fringe/")
+(setq git-gutter-packages '(fringe-helper git-gutter git-gutter-fringe))
+
+(dolist (value git-gutter-packages)
+  (unless (package-installed-p value)
+    (package-install value))
+  (package-initialize))
 
 (require 'git-gutter-fringe)
 
