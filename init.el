@@ -121,6 +121,8 @@
 
 (require 'setup-yasnippet)
 
+(require 'setup-yaml)
+
 ;;; init.el ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
