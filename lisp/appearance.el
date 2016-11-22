@@ -1,10 +1,7 @@
 (setq theme-directory (concat user-emacs-directory "Themes/GNU Emacs"))
-(setq aurora-directory (concat theme-directory "/aurora-theme"))
-;(setq base16-theme-directory (concat user-emacs-directory "Themes/GNU Emacs/base16-emacs"))
-(add-to-list 'load-path aurora-directory)
+(setq current-theme-directory (concat theme-directory "/aurora"))
+(add-to-list 'load-path current-theme-directory)
 (require 'aurora-theme)
-;;(require 'tomorrow-night-theme)
-;(require 'base16-default-theme)
 
 ;(unless (package-installed-p 'ample-theme)
 ;  (package-install 'ample-theme))
@@ -18,7 +15,5 @@
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
-
-(setq js-indent-level 2)
 
 (provide 'appearance)

@@ -75,6 +75,8 @@
 
 (require 'setup-exec-path)
 
+;(require 'setup-auto-complete)
+
 (require 'setup-helm)
 
 (require 'setup-company-mode)
