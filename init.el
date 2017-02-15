@@ -107,6 +107,8 @@
 
 (require 'setup-projectile)
 
+(require 'setup-proto)
+
 (require 'setup-python)
 
 (require 'setup-rainbow-mode)
@@ -124,6 +126,8 @@
 (require 'setup-yasnippet)
 
 (require 'setup-yaml)
+
+(setq css-indent-offset 2)
 
 ;;; init.el ends here
 (custom-set-variables

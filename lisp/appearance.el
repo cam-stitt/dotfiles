@@ -1,6 +1,12 @@
 (setq theme-directory (concat user-emacs-directory "Themes/GNU Emacs"))
-(setq current-theme-directory (concat theme-directory "/aurora"))
-(add-to-list 'load-path current-theme-directory)
+(setq aurora-theme-directory (concat theme-directory "/aurora"))
+(setq base16-theme-directory (concat theme-directory "/base16-emacs"))
+(setq base16-build-theme-directory (concat theme-directory "/base16-emacs/build"))
+
+(add-to-list 'load-path aurora-theme-directory)
+(add-to-list 'load-path base16-theme-directory)
+(add-to-list 'load-path base16-build-theme-directory)
+;(require 'base16-embers-theme)
 (require 'aurora-theme)
 
 ;(unless (package-installed-p 'ample-theme)
