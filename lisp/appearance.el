@@ -6,8 +6,8 @@
 (add-to-list 'load-path aurora-theme-directory)
 (add-to-list 'load-path base16-theme-directory)
 (add-to-list 'load-path base16-build-theme-directory)
-;(require 'base16-embers-theme)
-(require 'aurora-theme)
+(require 'base16-embers-theme)
+;(require 'aurora-theme)
 
 ;(unless (package-installed-p 'ample-theme)
 ;  (package-install 'ample-theme))
