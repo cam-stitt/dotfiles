@@ -77,7 +77,9 @@
 
 ;(require 'setup-auto-complete)
 
-(require 'setup-helm)
+;(require 'setup-helm)
+
+(require 'setup-ido)
 
 (require 'setup-company-mode)
 
@@ -90,6 +92,8 @@
 (require 'setup-git-gutter-fringe)
 
 (require 'setup-go)
+
+(require 'setup-icons)
 
 (require 'setup-js-mode)
 
@@ -115,7 +119,7 @@
 
 ;(require 'setup-rinari)
 
-;(require 'setup-smex)
+(require 'setup-smex)
 
 (require 'setup-unbound)
 
