@@ -6,3 +6,6 @@ bookmarks
 recentf
 .DS_Store
 .#
+
+ido.last
+smex-items
