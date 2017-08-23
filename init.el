@@ -62,15 +62,6 @@
 
 (global-auto-revert-mode t)
 
-;; testify
-(fset 'testify
-     (lambda (&optional arg) "Converts test words into actual test functions.
-  
-  Converts something like `has token is 200` into `def
-  test_has_token_is_200(self):\n\tpass` so I can easily type out my
-  python test methods."
-       (interactive "p") (kmacro-exec-ring-item (quote ([100 101 102 32 116 101 115 116 95 67108896 5 134217765 32 return 95 return 33 5 40 115 101 108 102 41 58 return 32 32 32 32 112 97 115 115 return 14 1] 0 "%d")) arg)))
-
 (require 'appearance)
 
 (require 'setup-exec-path)
@@ -78,6 +69,8 @@
 ;(require 'setup-auto-complete)
 
 ;(require 'setup-helm)
+
+(require 'setup-groovy)
 
 (require 'setup-ido)
 
@@ -139,7 +132,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (exec-path-from-shell ample-theme))))
+ '(package-selected-packages
+   (quote
+    (yaml-mode yasnippet web-mode unbound smex rainbow-mode protobuf-mode helm-projectile projectile magit neotree js2-mode all-the-icons company-go go-eldoc go-mode git-gutter-fringe git-gutter fringe-helper flycheck fill-column-indicator dockerfile-mode company groovy-mode exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
