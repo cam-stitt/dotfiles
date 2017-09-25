@@ -23,7 +23,7 @@
            "go build -v && go test -v && go vet && golint"))
   ; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump)
-  (go-eldoc-setup))
+  ('go-eldoc-setup))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
 (provide 'setup-go)

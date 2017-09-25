@@ -56,11 +56,14 @@
 
 (package-initialize) ;; You might already have this line
 
-;; fetch the list of packages available 
+;; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
 (global-auto-revert-mode t)
+
+; Electric pair ftw
+(electric-pair-mode t)
 
 (require 'appearance)
 
@@ -90,6 +93,8 @@
 
 (require 'setup-js-mode)
 
+(require 'setup-json)
+
 ;(require 'setup-less-css-mode)
 
 (require 'setup-linum-mode)
@@ -100,7 +105,7 @@
 
 ;(require 'setup-markdown)
 
-;(require 'setup-org)
+(require 'setup-org)
 
 (require 'setup-projectile)
 
