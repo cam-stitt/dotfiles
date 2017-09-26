@@ -47,9 +47,8 @@
 
 (require 'package) ;; You might already have this line
 ; list the repositories containing them
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -72,6 +71,8 @@
 
 (require 'setup-groovy)
 
+(require 'setup-graphql)
+
 (require 'setup-ido)
 
 (require 'setup-company-mode)
@@ -89,6 +90,8 @@
 (require 'setup-icons)
 
 (require 'setup-js-mode)
+
+(require 'setup-json-mode)
 
 ;(require 'setup-less-css-mode)
 
@@ -132,9 +135,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (yaml-mode yasnippet web-mode unbound smex rainbow-mode protobuf-mode helm-projectile projectile magit neotree js2-mode all-the-icons company-go go-eldoc go-mode git-gutter-fringe git-gutter fringe-helper flycheck fill-column-indicator dockerfile-mode company groovy-mode exec-path-from-shell))))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

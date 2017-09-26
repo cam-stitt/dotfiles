@@ -1,7 +1,12 @@
 (let ((default-directory (concat user-emacs-directory "Themes/GNU Emacs/")))
   (normal-top-level-add-subdirs-to-load-path))
 
-(require 'base16-embers-theme)
+(unless (package-installed-p 'base16-theme)
+  (package-install 'base16-theme))
+(package-initialize)
+
+(load-theme 'base16-twilight t)
+;(require 'base16-embers-theme)
 ;(require 'aurora-theme)
 
 ;(unless (package-installed-p 'ample-theme)
