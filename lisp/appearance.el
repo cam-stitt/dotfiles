@@ -17,7 +17,7 @@
 (setq-default indent-tabs-mode nil)
 
 (add-to-list 'default-frame-alist
-	     '(font . "Ubuntu Mono-14"))
+	     '(font . "Ubuntu Mono-16"))
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
