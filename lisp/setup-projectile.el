@@ -8,7 +8,9 @@
 (package-initialize)
 
 (require 'projectile)
+(require 'helm-projectile)
 
-(projectile-global-mode)
+(projectile-mode)
+(helm-projectile-on)
 
 (provide 'setup-projectile)

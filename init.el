@@ -66,17 +66,19 @@
 
 (require 'appearance)
 
+(require 'setup-ansible)
+
 (require 'setup-exec-path)
 
 ;(require 'setup-auto-complete)
 
-;(require 'setup-helm)
+(require 'setup-helm)
 
 (require 'setup-groovy)
 
 (require 'setup-graphql)
 
-(require 'setup-ido)
+;(require 'setup-ido)
 
 (require 'setup-company-mode)
 
@@ -118,7 +120,7 @@
 
 ;(require 'setup-rinari)
 
-(require 'setup-smex)
+;(require 'setup-smex)
 
 (require 'setup-unbound)
 
