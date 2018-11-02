@@ -6,4 +6,6 @@
 
 (global-set-key [f8] 'neotree-toggle)
 
+(setq neo-window-fixed-size nil)
+
 (provide 'setup-neotree)
