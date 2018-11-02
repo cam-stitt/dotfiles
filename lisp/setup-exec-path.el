@@ -10,7 +10,7 @@
 ;(add-to-list 'exec-path-from-shell-variables '"GOPATH")
 ;(add-to-list 'exec-path-from-shell-variables '"PATH")
 
-(when (memq window-system '(mac ns))
+(when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
 (provide 'setup-exec-path)

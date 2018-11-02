@@ -88,13 +88,9 @@
 
 (require 'setup-fci)
 
-(require 'setup-flycheck)
-
 (require 'setup-go)
 
 (require 'setup-icons)
-
-(require 'setup-js-mode)
 
 (require 'setup-json)
 
@@ -128,6 +124,11 @@
 (require 'setup-unbound)
 
 (require 'setup-web-mode)
+
+; js-mode requires web-mode
+(require 'setup-js-mode)
+
+(require 'setup-flycheck)
 
 (require 'setup-windmove)
 
