@@ -11,15 +11,6 @@
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
 
-;; (defun ad-advised-definition-p (definition)
-;;   "Return non-nil if DEFINITION was generated from advice information."
-;;   (if (or (ad-lambda-p definition)
-;; 	  (macrop definition)
-;; 	  (ad-compiled-p definition))
-;;       (let ((docstring (ad-docstring definition)))
-;; 	(and (stringp docstring)
-;; 	     (get-text-property 0 'dynamic-docstring-function docstring)))))
-
 ;; Set path to dependencies
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/vendor")
@@ -137,21 +128,3 @@
 (require 'setup-yaml)
 
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(git-gutter:added-sign "➕")
- '(git-gutter:deleted-sign "➖")
- '(git-gutter:modified-sign "✱")
- '(git-gutter:window-width 2)
- '(package-selected-packages
-   (quote
-    (cov coverlay yasnippet yaml-mode web-mode unbound rainbow-mode protobuf-mode neotree magit json-mode js2-mode helm-projectile groovy-mode graphql-mode go-eldoc git-gutter-fringe flycheck fill-column-indicator exec-path-from-shell dockerfile-mode company-go base16-theme ansible all-the-icons))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

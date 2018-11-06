@@ -18,7 +18,8 @@
 (setq web-mode-content-types-alist
       '(("javascript" . "\\.js.njk\\'")))
 
-(setq css-indent-offset 2)
+; auto indent to 2 for css
+;(setq css-indent-offset 2)
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
@@ -27,7 +28,9 @@
   (setq web-mode-css-indent-offset 2)
 ;  (setq web-mode-disable-auto-pairing t)
   (setq web-mode-enable-css-colorization t)
-  (flycheck-mode +1))
+  (flycheck-mode +1)
+  ; use single quotes
+  (setq web-mode-auto-quote-style 2))
 
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 
