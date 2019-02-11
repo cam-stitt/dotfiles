@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Empty Svelte Template
+# key: svt
+# --
+$0
+
+<script>
+  export default {
+
+  };
+</script>
+
+<style>
+</style>
