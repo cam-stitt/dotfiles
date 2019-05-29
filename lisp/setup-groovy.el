@@ -1,7 +1,4 @@
-(unless (package-installed-p 'groovy-mode)
-  (package-install 'groovy-mode))
-(package-initialize)
-
-(require 'groovy-mode)
+(use-package groovy-mode
+  :ensure t)
 
 (provide 'setup-groovy)

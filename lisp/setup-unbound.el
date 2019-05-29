@@ -1,7 +1,4 @@
-(unless (package-installed-p 'unbound)
-  (package-install 'unbound))
-(package-initialize)
-
-(require 'unbound)
+(use-package unbound
+  :ensure t)
 
 (provide 'setup-unbound)

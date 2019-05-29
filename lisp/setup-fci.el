@@ -1,6 +1,4 @@
-(unless (package-installed-p 'fill-column-indicator)
-  (package-install 'fill-column-indicator))
-
-(require 'fill-column-indicator)
+(use-package fill-column-indicator
+  :ensure t)
 
 (provide 'setup-fci)

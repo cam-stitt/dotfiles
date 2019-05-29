@@ -1,8 +1,7 @@
-(unless (package-installed-p 'ansible)
-  (package-install 'ansible))
-(package-initialize)
-
-(setq ansible::vault-password-file "~/.vault-pass")
+(use-package ansible
+  :ensure t
+  :init
+  (setq ansible::vault-password-file "~/.vault-pass"))
 
 (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
 

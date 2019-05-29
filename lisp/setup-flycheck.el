@@ -1,17 +1,3 @@
-(unless (package-installed-p 'flycheck)
-  (package-install 'flycheck))
-
-(require 'flycheck)
-
-(add-hook 'after-init-hook 'global-flycheck-mode)
-
-(setq-default flycheck-disabled-checkers
-  (append flycheck-disabled-checkers
-          '(javascript-jshint)))
-
-;;; eslint support
-(flycheck-add-mode 'javascript-eslint 'web-mode)
-
 ;; use local eslint from node_modules before global
 ;; http://emacs.stackexchange.com/questions/21205/flycheck-with-file-relative-eslint-executable
 (defun my-use-eslint-from-node-modules ()
@@ -23,12 +9,20 @@
                                         root))))
     (when (and eslint (file-executable-p eslint))
       (setq-local flycheck-javascript-eslint-executable eslint))))
-(add-hook 'flycheck-mode-hook 'my-use-eslint-from-node-modules)
 
-;; customize flycheck temp file prefix
-(setq-default flycheck-temp-prefix ".flycheck")
-
-;; Highlight whole line with error
-(setq flycheck-highlighting-mode 'lines)
+(use-package flycheck
+  :ensure t
+  :hook (flycheck-mode-hook . 'my-use-eslint-from-node-modules)
+  :config
+  (progn
+    (setq-default flycheck-disabled-checkers
+                (append flycheck-disabled-checkers
+                        '(javascript-jshint)))
+    (setq flycheck-highlighting-mode 'lines)
+    
+    ;; customize flycheck temp file prefix
+    (setq-default flycheck-temp-prefix ".flycheck")
+    (global-flycheck-mode)
+    (flycheck-add-mode 'javascript-eslint 'web-mode)))
 
 (provide 'setup-flycheck)

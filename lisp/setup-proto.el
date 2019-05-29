@@ -1,8 +1,10 @@
-(setq proto-mode-packages '(cc-mode cl protobuf-mode))
+(use-package cc-mode
+  :ensure t)
 
-(dolist (value proto-mode-packages)
-  (unless (package-installed-p value)
-    (package-install value))
-  (package-initialize))
+(use-package cl
+  :ensure t)
+
+(use-package protobuf-mode
+  :ensure t)
 
 (provide 'setup-proto)

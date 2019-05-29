@@ -11,3 +11,8 @@ ido.last
 smex-items
 
 network-security.data
+
+*.dat
+session.*
+.cache
+transient

@@ -1,7 +1,4 @@
-(unless (package-installed-p 'graphql-mode)
-  (package-install 'graphql-mode))
-(package-initialize)
-
-(require 'graphql-mode)
+(use-package graphql-mode
+  :ensure t)
 
 (provide 'setup-graphql)
