@@ -100,7 +100,7 @@
 
 (require 'setup-magit)
 
-;;;;;(require 'setup-markdown)
+(require 'setup-markdown)
 
 (require 'setup-org)
 
