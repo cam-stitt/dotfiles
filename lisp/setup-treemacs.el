@@ -10,7 +10,7 @@
   (progn
     (setq treemacs-collapse-dirs                 (if (executable-find "python3") 3 0)
           treemacs-deferred-git-apply-delay      0.5
-          treemacs-display-in-side-window        t
+          treemacs-display-in-side-window        nil
           treemacs-eldoc-display                 t
           treemacs-file-event-delay              5000
           treemacs-file-follow-delay             0.2

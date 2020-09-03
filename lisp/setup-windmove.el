@@ -2,5 +2,9 @@
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
+(global-set-key (kbd "C-c j") 'windmove-left)
+(global-set-key (kbd "C-c l") 'windmove-right)
+(global-set-key (kbd "C-c i")    'windmove-up)
+(global-set-key (kbd "C-c k")  'windmove-down)
 
 (provide 'setup-windmove)

@@ -9,7 +9,7 @@
 (setq-default indent-tabs-mode nil)
 
 (add-to-list 'default-frame-alist
-	     '(font . "B612 Mono-16"))
+	     '(font . "Hack-14"))
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)

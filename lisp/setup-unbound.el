@@ -1,4 +1,3 @@
-(use-package unbound
-  :ensure t)
+(use-package unbound)
 
 (provide 'setup-unbound)

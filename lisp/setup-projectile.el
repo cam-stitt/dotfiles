@@ -1,6 +1,6 @@
 (use-package projectile
-  :bind (:map projectile-mode-map
-         ("s-p" . projectile-command-map)
+  :ensure t
+  :bind (("s-p" . projectile-command-map)
          ("C-c p" . projectile-command-map))
   :config
   (use-package helm-projectile

@@ -3,6 +3,10 @@
 
 
 ;;; Code:
+(require 'gnutls)
+(add-to-list 'gnutls-trustfiles "/usr/local/etc/openssl/cert.pem")
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 ;; Turn off mouse interface early in startup to avoid momentary display
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -17,15 +21,15 @@
 
 ;; Backup and auto-save directory setup
 (setq backup-directory-alist
-      `(("." . ,temporary-file-directory)))
+      `(("." . ,(concat user-emacs-directory "backups"))))
 (setq auto-save-file-name-transforms
-      `(("." ,temporary-file-directory t)))
+      `((".*" ,(concat user-emacs-directory "auto-save") t)))
 
 ;; Delete old backup files
 (message "Deleting old backup files...")
 (let ((week (* 60 60 24 7))
       (current (float-time (current-time))))
-  (dolist (file (directory-files temporary-file-directory t))
+  (dolist (file (directory-files (concat user-emacs-directory "backups") t))
     (when (and (backup-file-name-p file)
                (> (- current (float-time (nth 5 (file-attributes file))))
                   week))
@@ -38,11 +42,9 @@
 
 (require 'package)
 ; list the repositories containing them
-(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+                                        ;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
 
 (package-initialize)
 
@@ -69,7 +71,7 @@
 
 (require 'setup-helm)
 
-(require 'setup-groovy)
+(require 'setup-groovy) ;mostly needed for jenkins files
 
 (require 'setup-graphql)
 
@@ -93,6 +95,8 @@
 
 ; git-gutter must come after linum
 (require 'setup-git-gutter)
+
+(require 'setup-handlebars)
 
 ;;;;;(require 'setup-neotree)
 
