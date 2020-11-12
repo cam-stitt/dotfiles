@@ -3,6 +3,6 @@
 
 (use-package rainbow-mode
   :ensure t
-  :hook (css-mode-hook . my-css-mode-hook))
+  :hook ((css-mode web-mode) . my-css-mode-hook))
 
 (provide 'setup-rainbow-mode)

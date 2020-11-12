@@ -75,8 +75,6 @@
 
 ;(require 'setup-graphql)
 
-;;;;;(require 'setup-ido)
-
 ;;;;;(require 'setup-company-mode)
 
 (require 'setup-dockerfile)
@@ -91,7 +89,7 @@
 
 ;;;;;(require 'setup-less-css-mode)
 
-(require 'setup-linum-mode)
+(require 'setup-display-line-numbers)
 
 ; git-gutter must come after linum
 (require 'setup-diff-hl)
@@ -119,9 +117,6 @@
 (require 'setup-unbound)
 
 (require 'setup-web-mode)
-
-; js-mode requires web-mode
-;(require 'setup-js-mode)
 
 (require 'setup-flycheck)
 

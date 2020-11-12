@@ -20,4 +20,4 @@
                         :background "#b58900"
                         :foreground "#073642")))
 
-(provide 'setup-git-gutter)
+(provide 'setup-diff-hl)
