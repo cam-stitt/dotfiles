@@ -61,7 +61,7 @@
 
 (require 'setup-use-package)
 
-(require 'setup-ansible)
+;(require 'setup-ansible)
 
 (require 'setup-coverage)
 
@@ -71,9 +71,9 @@
 
 (require 'setup-helm)
 
-(require 'setup-groovy) ;mostly needed for jenkins files
+;(require 'setup-groovy) ;mostly needed for jenkins files
 
-(require 'setup-graphql)
+;(require 'setup-graphql)
 
 ;;;;;(require 'setup-ido)
 

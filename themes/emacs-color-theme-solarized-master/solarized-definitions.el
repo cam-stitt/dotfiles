@@ -239,6 +239,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
                 (success (,@fg-blue))              ; MoreMsg
                 (escape-glyph-face (,@fg-red))
                 (fringe (,@fg-base01 ,@bg-base02))
+                (line-number (,@fg-base01 ,@bg-base02))
+                ;(line-number-current-line (,@fg-base01 ,@bg-base02))
                 (linum (,@fg-base01 ,@bg-base02))
                 (header-line (,@fg-base0 ,@bg-base02 ,@fmt-revbb)) ; Pmenu
                 (highlight (,@bg-base02))

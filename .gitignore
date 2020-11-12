@@ -16,3 +16,5 @@ network-security.data
 session.*
 .cache
 transient
+
+backups
