@@ -94,7 +94,7 @@
 (require 'setup-linum-mode)
 
 ; git-gutter must come after linum
-(require 'setup-git-gutter)
+(require 'setup-diff-hl)
 
 (require 'setup-handlebars)
 
