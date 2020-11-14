@@ -69,7 +69,9 @@
 
 (require 'setup-auto-complete)
 
-(require 'setup-helm)
+;(require 'setup-helm)
+
+(require 'setup-ivy)
 
 ;(require 'setup-groovy) ;mostly needed for jenkins files
 
@@ -105,6 +107,8 @@
 (require 'setup-markdown)
 
 (require 'setup-org)
+
+(require 'setup-ag)
 
 (require 'setup-projectile)
 

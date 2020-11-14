@@ -4,7 +4,7 @@
 
 (use-package go-mode
   :ensure t
-  :hook (go-mode-hook . my-go-mode-hook)
+  :hook (go-mode . my-go-mode-hook)
   :config
   (progn
     (setq gofmt-command "goimports")
