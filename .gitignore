@@ -25,3 +25,5 @@ tramp
 
 .emacs.desktop*
 url
+
+custom.el
