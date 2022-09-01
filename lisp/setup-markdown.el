@@ -1,4 +1,4 @@
-(use-package markdown-mode+
+(use-package markdown-mode
   :ensure t
   :init
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))

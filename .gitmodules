@@ -1,0 +1,3 @@
+[submodule "themes/emacs-acme-theme"]
+	path = themes/emacs-acme-theme
+	url = https://github.com/nnoodle/emacs-acme-theme.git

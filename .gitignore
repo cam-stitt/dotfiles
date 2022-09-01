@@ -6,6 +6,9 @@ bookmarks
 recentf
 .DS_Store
 .#
+'#!*
+\#!*
+.lsp*
 
 ido.last
 smex-items
@@ -17,4 +20,8 @@ session.*
 .cache
 transient
 
-backups
+backups/!*
+tramp
+
+.emacs.desktop*
+url

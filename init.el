@@ -1,12 +1,6 @@
 ;;; init.el --- my setup for emacs
 ;;; Commentary:
 
-
-;;; Code:
-(require 'gnutls)
-(add-to-list 'gnutls-trustfiles "/usr/local/etc/openssl/cert.pem")
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-
 ;; Turn off mouse interface early in startup to avoid momentary display
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -36,13 +30,18 @@
       (message "%s" file)
       (delete-file file))))
 
+;; auto revert
+(global-auto-revert-mode t)
+
+;; pairs
 (global-set-key (kbd "M-[") 'insert-pair)
 (global-set-key (kbd "M-{") 'insert-pair)
 (global-set-key (kbd "M-\"") 'insert-pair)
+; Electric pair ftw
+(electric-pair-mode t)
 
 (require 'package)
 ; list the repositories containing them
-                                        ;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 
@@ -52,85 +51,61 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-(global-auto-revert-mode t)
-
-; Electric pair ftw
-(electric-pair-mode t)
+(require 'setup-use-package)
 
 (require 'setup-appearance)
 
-(require 'setup-use-package)
-
-;(require 'setup-ansible)
-
-(require 'setup-coverage)
+(require 'setup-diminish)
 
 (require 'setup-exec-path)
 
-(require 'setup-auto-complete)
-
-;(require 'setup-helm)
+(require 'setup-direnv)
 
 (require 'setup-ivy)
 
-;(require 'setup-groovy) ;mostly needed for jenkins files
+(require 'setup-corfu)
 
-;(require 'setup-graphql)
+;; must be after 'ivy
+(require 'setup-projectile)
 
-;;;;;(require 'setup-company-mode)
+(require 'setup-windmove)
 
-(require 'setup-dockerfile)
+(require 'setup-lsp)
 
 (require 'setup-fci)
-
-(require 'setup-go)
-
-;;;;;(require 'setup-icons)
-
-(require 'setup-json)
-
-;;;;;(require 'setup-less-css-mode)
 
 (require 'setup-display-line-numbers)
 
 ; git-gutter must come after linum
 (require 'setup-diff-hl)
 
-(require 'setup-handlebars)
-
-;;;;;(require 'setup-neotree)
-
-(require 'setup-treemacs)
+(require 'setup-sidebar)
 
 (require 'setup-magit)
+
+(require 'setup-nix)
+
+(require 'setup-dockerfile)
+
+(require 'setup-go)
 
 (require 'setup-markdown)
 
 (require 'setup-org)
 
-(require 'setup-ag)
-
-(require 'setup-projectile)
-
-(require 'setup-proto)
-
-(require 'setup-python)
-
 (require 'setup-rainbow-mode)
 
-(require 'setup-unbound)
-
 (require 'setup-web-mode)
-
-(require 'setup-flycheck)
-
-(require 'setup-windmove)
 
 (require 'setup-yasnippet)
 
 (require 'setup-yaml)
 
+(require 'setup-hcl)
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load-file custom-file)
+
+(put 'set-goal-column 'disabled nil)
 
 ;;; init ends here

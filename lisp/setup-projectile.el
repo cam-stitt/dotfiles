@@ -4,11 +4,12 @@
               ("s-p" . projectile-command-map)
               ("C-c p" . projectile-command-map))
   :config
-  (projectile-mode 1))
+
+  (setq projectile-project-search-path '("~/projects/")))
 
 (use-package counsel-projectile
-    :ensure t
-    :config
-    (counsel-projectile-mode 1))
+  :ensure t
+  :config
+  (counsel-projectile-mode 1))
 
 (provide 'setup-projectile)
