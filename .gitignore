@@ -27,3 +27,6 @@ tramp
 url
 
 custom.el
+
+.dap-breakpoints
+projects

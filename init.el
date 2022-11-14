@@ -70,6 +70,8 @@
 
 (require 'setup-windmove)
 
+(require 'setup-go)
+
 (require 'setup-lsp)
 
 (require 'setup-fci)
@@ -87,8 +89,6 @@
 
 (require 'setup-dockerfile)
 
-(require 'setup-go)
-
 (require 'setup-markdown)
 
 (require 'setup-org)
@@ -98,6 +98,8 @@
 (require 'setup-web-mode)
 
 (require 'setup-yasnippet)
+
+(require 'setup-yafolding)
 
 (require 'setup-yaml)
 
