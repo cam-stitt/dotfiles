@@ -6,9 +6,6 @@
 (use-package lsp-ivy
   :commands lsp-ivy-workspace-symbol)
 
-(use-package dap-dlv-go
-  :ensure t)
-
 (use-package dap-mode
    :ensure t
    :defer

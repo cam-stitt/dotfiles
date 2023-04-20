@@ -5,7 +5,7 @@
               ("C-c p" . projectile-command-map))
   :config
 
-  (setq projectile-project-search-path '("~/projects/")))
+  (setq projectile-project-search-path '("~/code/")))
 
 (use-package counsel-projectile
   :ensure t

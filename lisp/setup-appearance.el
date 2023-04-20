@@ -13,10 +13,20 @@
 
 (load-theme 'acme t)
 
+(let ((line (face-attribute 'mode-line :underline)))
+    (set-face-attribute 'mode-line          nil :overline   line)
+    (set-face-attribute 'mode-line-inactive nil :overline   line)
+    (set-face-attribute 'mode-line-inactive nil :underline  line)
+    (set-face-attribute 'mode-line          nil :box        nil)
+    (set-face-attribute 'mode-line-inactive nil :box        nil)
+    (set-face-attribute 'mode-line-inactive nil :background "#ffffea"))
+
 (setq-default indent-tabs-mode nil)
 
 (add-to-list 'default-frame-alist
 	     '(font . "Hack-14"))
+
+(setq inhibit-startup-screen t)
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)

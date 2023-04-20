@@ -6,9 +6,6 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;; No splash screen please
-(setq inhibit-startup-message t)
-
 ;; Set path to dependencies
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/vendor")
@@ -33,6 +30,9 @@
 ;; auto revert
 (global-auto-revert-mode t)
 
+;; delete selected region
+(delete-selection-mode 1)
+
 ;; pairs
 (global-set-key (kbd "M-[") 'insert-pair)
 (global-set-key (kbd "M-{") 'insert-pair)
@@ -55,7 +55,15 @@
 
 (require 'setup-appearance)
 
+(require 'setup-moody)
+
+(require 'setup-minions)
+
 (require 'setup-diminish)
+
+(require 'setup-eglot)
+
+(require 'setup-eshell)
 
 (require 'setup-exec-path)
 
@@ -72,7 +80,7 @@
 
 (require 'setup-go)
 
-(require 'setup-lsp)
+;(require 'setup-lsp)
 
 (require 'setup-fci)
 
